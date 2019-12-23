@@ -12,5 +12,5 @@ $conn = mysqli_connect($dbServername, $dbUsername, $dbPassword, $dbName);
 
 
 // http , pdf Connect too
- define('ROOT_URL', 'http://localhost/pdf%20Connect/');   
+ define('ROOT_URL', 'http://pdfconnect.herokuapp.com/');   
 ?>
