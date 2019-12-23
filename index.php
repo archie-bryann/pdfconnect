@@ -5,7 +5,7 @@
 
 ?>
 <nav>
-    <h1>This is me</h1>
+
             <ul>
                 <li class = "current"><a href = "<?php echo ROOT_URL; ?>">Home</a></li>
                 <li><a href = "<?php echo ROOT_URL.'login.php'; ?>">log in</a></li>              
