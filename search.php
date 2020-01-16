@@ -1,41 +1,17 @@
 <?php
     include ('head.php');
-    include ('redirect/not_logged_in.php');
+    // include ('redirect/not_logged_in.php');
 ?>
 <nav>
             <ul>
             <hr>
-             <li id = "search">Search Result</li>
+             <li>Search Result</li>
                 </ul>
             </nav>
         </div> 
         </header>               
         </div> 
-        
-<style>
-    li#search{
-        font-family: French Script MT;
-        font-size: 30px;
-         
-    }
-    h1{
-        margin-bottom: 15px;
-    }
-
-    
-    .display{
-        color: red;
-        font-size: 11px;
-        text-align: center;
-
-    }
-    .article-box{
-        text-align: center;
-    }
-    </style>
-
-
-
+  
 <?php
     if(isset($_GET['submit-search']) && !empty($_GET['q'])){
         
@@ -76,47 +52,11 @@
                 <p>Date: <b>".$row['uploaded_on']."</b></p>
                 </div>
                 
-                <p><a id = 'signup' target='_blank'  href = '../uploads/".$x."'>Read</a></p>
-                <p><a id = 'signup' href = '../uploads/".$x."' download = 'www.thepdfconnect.com_".$x."'>Download</a></p><br>
+                <p><a target='_blank'  href = '../uploads/".$x."'>Read</a></p>
+                <p><a href = '../uploads/".$x."' download = 'www.thepdfconnect.com_".$x."'>Download</a></p><br>
                 <hr>
                 <br>                 
-                
-                 <style>
-                 a#signup, p{
-                    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;    
-                    text-align: center;
-
-                }
-                h1{
-                    
-                }
-
-                 .neat{
-                    background-color: white;
-                    margin-left: 460px;
-                    margin-right: 460px;
-                    
-                    border-radius: 70px;
-                    
-                 }
-                 a{
-                    text-decoration: none;
-                    color: red;
-                    
-                 }
-                 a:hover{
-                    font-weight: bold;
-                    text-decoration: underline;
-                 }
-                
-                 .article-box{
-                    text-align: 100px;    
-                }
-                p#heading{
-                    font-weight: bold;
-                    font-size: 20px;
-                }
-                 </style>                
+         
                  ";
             
                  
@@ -143,23 +83,6 @@
 ?>
 
 
- <?php 
- /*
-            $files = scandir("uploads");
-            // print_r($files);   ----> Display all uploaded filesizess
-            for ($a = 2; $a < count($files); $a++) {
-                // Displaying links to download
-                // Making it downloadable
-                ?>
-                <p>
-                <h2>Python(Data Structures)</h2>
-                <a href = "uploads/<?php echo $files[$a] ?>"><?php echo $files[$a] ?></a><br>
-                <a download = "uploads/<?php echo $files[$a] ?>" href = "uploads/<?php echo $files[$a] ?>"><?php echo $files[$a] ?></a>
-                </p>    <?php
-            
-            }
-            */
-            ?>
 
 </div>
 

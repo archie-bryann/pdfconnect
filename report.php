@@ -16,7 +16,9 @@
         </header>
         <section>
         <div>
+
         
+           
                </div>
         </section>
         
@@ -24,50 +26,60 @@
             </div>
         </section>
 
-    <br>
         <section>
-            <div>
-                <article>
-                <ul>
-                <li>
-                    <h1>About The PDF Connect </h1>
-                    <p>PDF Connect is a powerful but easy-to-use web application. PDF Connect was created to serve as as an e-library to schools and organizations, making access to e-books and related resources easier and less-strenious. PDF Connect is an e-library with <b>you</b> as the <i>librarian</i>.</p>
-                    </li>
-                  
-                        <br>
-                        <li>
-                   <h1>About Ekomobong Archibong</h1>
-                    <div>
-                    <p>
-                    <i>Ekomobong Archibong</i> is the creator of PDF Connect. A student of The University of Ibadan.
+
+
+                <h2>Report Issue</h2>
+                    <form action = "<?php echo $_SERVER['PHP_SELF']; ?>" method = "POST">
+                        <div>
+                        <label>Name</label><br>
+<input type = "hidden" name = "token" value = "<?php echo $token; ?>"/>
+                            <input name = "name" type = "text" placeholder = "Name" value =  "<?php
+
+                    if(isset($_SESSION['id'])) {
+            $results = new UsersDisplay($_SESSION['id']);
+            $results->displayName();
+                    }
+        ?>">
+                        </div>
+                        <div>
+                        <label>Contact</label><br>
+                            <input name = "telephone" type = "text" placeholder = "Telephone" value = "<?php
+                if(isset($_SESSION['id'])) {
+            $results->displayTelephone();
+                }
+        ?>">
+                        </div>
+    <div>
+    <label>Email</label><br>
+        <input name = "email" type = "e-mail" placeholder = "Your e-mail address" value = "<?php
+            if(isset($_SESSION['id'])) {
+            $results->displayEmail();
+            }
+        ?>">
+</div>
+                        <div>
+                        <label>Title</label><br>
+                            <input name = "title" type = "text" placeholder = "Title of message">
+                        </div>
+                        <div>
+                        <label>Message</label><br>
+                      
+                            <textarea name = "message" placeholder = "Message"></textarea>
+                          
+                            
+                            </div>
+                        <button name = "submit" type = "submit">Send</button>
+                        </form>
+                        </div>
+                    
+                    <p> 
+                    
                     </p>
+                        </div>  
+
+                   
                     
-                        </div>
-
-                        </li>
-
-                        <br>
-
-                        <li>
-                   <h1>About The Team</h1>
-                    <div>
-                    <p>
-                    We ensure in the day-to-day running of PDF Connect.
-                </p>
-                    
-                        </div>
-
-                        
-
-                        <br />
-       
-         
-                 
-                </ul>
-                <aside>
-                    <div>
-                    <div>
-
 
 
             </section>
@@ -75,7 +87,7 @@
 if(isset($_POST['submit'])) {
 if(hash_equals($_SESSION['token'], $_POST['token'])) {                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                       
     $name = strip_tags(htmlspecialchars(htmlentities(mysqli_real_escape_string($conn, $_POST['name']))));
-    $phone_no = strip_tags(htmlspecialchars(htmlentities(mysqli_real_escape_string($conn, $_POST['phone_no']))));
+    $telephone = strip_tags(htmlspecialchars(htmlentities(mysqli_real_escape_string($conn, $_POST['telephone']))));
     $mailFrom = strip_tags(htmlspecialchars(htmlentities(mysqli_real_escape_string($conn, $_POST['email']))));
     $title = strip_tags(htmlspecialchars(htmlentities(mysqli_real_escape_string($conn, $_POST['title']))));   
     $message = strip_tags(htmlspecialchars(htmlentities(mysqli_real_escape_string($conn, $_POST['message']))));
@@ -105,7 +117,7 @@ echo '
 }
 }
 ?>
-    
+    <br>
 <?php
     include ('foot.php');
 ?>
