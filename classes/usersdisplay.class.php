@@ -1,33 +1,71 @@
-<?php
+    <?php
 
 class UsersDisplay extends Users {
 
     private $id;
     private $results;
+    private $profileLocation = 'profile/';
 
     public function __construct($userId) {
         $this->id = $userId;
         $this->results = $this->checkId($this->id);
     }
 
+   
+    public function displayId() {
+        return $this->results[0]['id'];
+    }
+
+    public function displayProfile() {
+        return $this->profileLocation . $this->results[0]['picture'];
+    }
+
     public function displayFirst() {
-        echo $this->results[0]['firstname'];
+        return $this->results[0]['firstname'];
     }
 
     public function displayLast() {
-        echo $this->results[0]['lastname'];
+        return $this->results[0]['lastname'];
     }
 
     public function displayName() {
-            echo $this->results[0]['firstname'] . ' ' . $this->results[0]['lastname'];
+            return $this->results[0]['firstname'] . ' ' . $this->results[0]['lastname'];
     }
 
     public function displayTelephone() {
-        echo $this->results[0]['telephone'];
+        return $this->results[0]['telephone'];
     }
 
     public function displayEmail() {
-        echo $this->results[0]['email'];
+        return $this->results[0]['email']; 
+    }
+
+    public function displayStudent() {
+        return $this->results[0]['student_of'];
+    }
+
+    public function displayWork() {
+        return $this->results[0]['work_at'];
+    }
+
+    public function displayAbout() {
+        return $this->results[0]['about_me'];
+    }
+
+    public function displayAllowTelephone() {
+        return $this->results[0]['allow_telephone'];
+    }
+
+    public function displayAllowEmail() {
+        return $this->results[0]['allow_email'];
+    }
+
+    public function displayTime() {
+        return $this->results[0]['time'];
+    }
+
+    public function displayUpdated() {
+        return $this->results[0]['updated'];
     }
     
     // finish later
@@ -36,4 +74,10 @@ class UsersDisplay extends Users {
     // about me
     // would you like people to view my email
     // would you like people to view my telephone
+
+
+
+
+
+    
 }

@@ -9,29 +9,21 @@
             <?php
                 include 'includes/nav.inc.php';
             ?>
-        </div>  
-        </header>
-    
-
-            </div>
-        </section>
-
-      
-        
-        <section>
-            <div>
-                <article>
-                    <h1>Sign up</h1>
-                   
-
     
 
 
+    <br>
+    <br>
+    <br>
+
+
     
-
-
-
+    <div class="container col-11">
+        <div class = "jumbotron">
+  <legend><h1>Sign up</h1></legend><br>
 <form class = "quote" method = "POST" action = "<?php echo $_SERVER['PHP_SELF']; ?>">
+
+
 <?php
 if(isset($_POST['submit'])){
     if(hash_equals($_SESSION['token'], $_POST['token'])) {
@@ -43,26 +35,42 @@ if(isset($_POST['submit'])){
         $pwd = $_POST['pwd'];
 
         $user = new UsersContr();
-        $user->createUser($firstname, $lastname, $email, $uid, $pwd);
+        echo '<div class="alert alert-dismissible alert-danger">
+        <button type="button" class="close" data-dismiss="alert">&times;</button>'.$user->createUser($firstname, $lastname, $email, $uid, $pwd).'</div>';
 
         
 
     } else {
-        $msg = '<script>window.location = "index.php";</script>';
+        header("Location: ".ROOT_URL."");
+        // echo '<script>window.location = "index";</script>';
     }
     }      
 ?>
 
-<div>
+
+<!-- <div>
 <label>Firstname</label><br>
-<input name = "firstname" type="text" placeholder = "Firstname" value = "<?php echo isset($_POST['firstname']) ? $firstname : ''; ?>">
-</div>
+<input required name = "firstname" type="text" placeholder = "Firstname" value = "<?php echo isset($_POST['firstname']) ? $firstname : ''; ?>">
+</div> -->
 
-<div>
+
+      <div class="form-group">
+      <label for="firstname">Firstname</label>
+      <input required name = "firstname" type="text" class="form-control" id="firstname" aria-describedby="emailHelp" placeholder="Enter firstname" value = "<?php echo isset($_POST['firstname']) ? $firstname : ''; ?>">
+    </div>
+
+
+<!-- <div>
 <label>Lastname</label><br>
-<input name = "lastname" type="text" placeholder = "Lastname" value = "<?php echo isset($_POST['lastname']) ? $lastname : ''; ?>">
-</div>
+<input required name = "lastname" type="text" placeholder = "Lastname" value = "<?php echo isset($_POST['lastname']) ? $lastname : ''; ?>">
+</div> -->
 
+
+
+<div class="form-group">
+      <label for="lastname">Lastname</label>
+      <input required name = "lastname" type="text" class="form-control" id="lastname" aria-describedby="emailHelp" placeholder="Enter lastname" value = "<?php echo isset($_POST['lastname']) ? $lastname : ''; ?>">
+    </div>
 
 
 
@@ -70,31 +78,56 @@ if(isset($_POST['submit'])){
   
 
 
-<div>
+<!-- <div>
 <label>E-mail</label><br>
-<input name = "email" type = "text" placeholder = "E-mail Address" value = "<?php echo isset($_POST['email']) ? $email : ''; ?>">
-</div>
+<input required name = "email" type = "email" placeholder = "E-mail Address" value = "<?php echo isset($_POST['email']) ? $email : ''; ?>">
+</div> -->
 
-<!-- <small>The email is available</small>      xml, javascript   -->   
-<div>
+    <div class="form-group">
+      <label for="email">Email address</label>
+      <input required name = "email" type="email" class="form-control" id="email" aria-describedby="emailHelp" placeholder="Enter email" value = "<?php echo isset($_POST['email']) ? $email : ''; ?>">
+    </div>
+
+
+<!-- <div>
 <label>Username</label><br>
-<input name = "uid" type = "text" placeholder = "Username" value = "<?php echo isset($_POST['uid']) ? $uid : ''; ?>">
-</div>
+<input required  name = "uid" type = "text" placeholder = "Username" value = "<?php echo isset($_POST['uid']) ? $uid : ''; ?>">
+</div> -->
 
-<!-- <small>The username is available</small>     xml, javascript    --> 
-<!-- <small> < > characeters are not allowed</small> -->
-<div>
+<div class="form-group">
+      <label for="username">Username</label>
+      <input required name = "uid" type="text" class="form-control" id="username" aria-describedby="emailHelp" placeholder="Enter username" value = "<?php echo isset($_POST['uid']) ? $uid : ''; ?>">
+    </div>
+
+<!-- <div>
 <label>Password</label><br>
-<input id = "myInput" name = "pwd" type = "password" placeholder = "Password">
-</div>
-<!-- <small> < > characeters are not allowed</small> -->
+<input required  id = "myInput" name = "pwd" type = "password" placeholder = "Password">
+</div> -->
 
-<div>
-<input id = "show_password" type = "checkbox" onclick = "myFunction()"><span class = "left"><small>Show Password</small></span>
+
+<div class="form-group">
+      <label for="password">Password</label>
+      <input required id="password" name = "pwd" type="password" class="form-control"  placeholder="Password">
 </div>
+
+
+
+
+<!-- <div>
+<input id = "show_password" type = "checkbox" onclick = "myFunction()"><span class = "left"><small>Show Password</small></span>
+</div> -->
+
+
+<div class="form-check">
+        <label class="form-check-label">
+          <input id = "show_password" onclick = "myFunction()" class="form-check-input" type="checkbox" value="">
+         Show Password
+        </label>
+      </div>
+
 <script>
 function myFunction() {
-    var x = document.getElementById("myInput");
+    var x = document.getElementById("password");
     if (x.type === "password") {
         x.type = "text";
     } else {
@@ -102,27 +135,23 @@ function myFunction() {
     }
 }
 </script>
-<button name = "submit" class = "button_1" type = "submit">Sign Up</button><br><br>
-<a id = "signup" class = "blue" href = "login.php">Login to your account</a>
+
+<br>
+
+<!-- <button name = "submit" type = "submit">Sign Up</button><br><br> -->
+
+<button name = "submit" type="submit" class="btn btn-secondary">Sign up</button>
 </form>
+<br>
+
+<!-- <a id = "signup" class = "blue" href = "login">Login to your account</a> -->
+
+<a class = "nav-link" href = "<?php echo ROOT_URL.'login'; ?>">Login to your account</a>
+
+</div>
+</div>
 
 
-
-</li>
-                    </ul>
-                </article>
-                <br />
-              
-            
-                        </div>
-                    
-                    </form>
-                      
-                        </div>
-                    
-                </aside>
-                
-               </div>
                <br><br>
 <?php
     include ('foot.php');

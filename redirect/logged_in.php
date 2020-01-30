@@ -1,5 +1,5 @@
 <?php
     if(isset($_SESSION['id'])) {
-        header("Location: welcome.php");
+        header("Location: dashboard");
     }
 ?>

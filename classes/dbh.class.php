@@ -18,9 +18,21 @@ class Dbh {
     // start it at head
     public function setVariable() {
         define('ROOT_URL', 'http://localhost/pdfconnect/');
+        define('colour1', 'bg-dark');       // bg-primary
+        define('colour2', 'bg-secondary');
         
+        define('links', 'grey lighten-2');
+
+        define('white', 'white');
+
     }
 
+
+    // CHANGE THE FOLLOWING TO:
+
+    // Change 'includes/logout.inc.php';
+
+    // change 'classes/users.class.php' => uploadLocation to OUTSIDE WEB'S DIRECTORY  (..)
    
 }
 
