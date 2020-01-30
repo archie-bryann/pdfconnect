@@ -1,44 +1,29 @@
-<?php
-    session_start();
-
-    // correct later
-    date_default_timezone_set('Africa/Lagos');
-    date_default_timezone_get();
-    
-    // include ('includes/dbh.inc.php');
-    include ('includes/class-autoloader.inc.php');
-
-
-    // for my variables
-    $dir = new Dbh();
-    $dir->setVariable();    
+ <?php
+    include 'headerInc.php';
 ?>
-
 <!DOCTYPE html>
 <html>
 <head>
-    <meta charset = "utf-8">
-    <meta name = "viewport" content = "width = device-width">
-    <meta name = "description" content = "">
-    <meta name = "keywords" content = "">
-    <meta name = "author" content = "Ekomobong Archibong">
-    <title>PDF Connect</title>
-    <!-- <link rel = "stylesheet" href = "bootstrap-lumen.css"> -->
-    <link rel = "stylesheet" href = 'animate.min.css'>
+<meta charset = "utf-8">
+<meta name = "viewport" content = "width = device-width">
+<meta name = "description" content = "">
+<meta name = "keywords" content = "">
+<meta name = "author" content = "Ekomobong Archibong">
+<title>App</title>
+<link rel = "stylesheet" href = "public/css/bootstrap-lumen.css">
+<!-- <link type="text/css" rel="stylesheet" href="materialize/css/materialize.min.css"  media="screen,projection"/> -->
+<link rel = "stylesheet" href = 'public/css/animate.min.css'>
+<link rel = "stylesheet" href = 'public/css/style.css'>
+<link href = "public/icons/css/material-icons.css" rel = "stylesheet">
+<link rel="stylesheet" href="public/css/instagram.min.css">
 
-    <link rel = "icon" type = "image/png" href = "">
-    <link rel = "apple-icon-touch" type = "image/png" href = "">
-    </head>
-    <a href = "<?php echo ROOT_URL; ?>"><h1>PDF Connect</h1></a>
+<link rel = "icon" type = "image/png" href = "">
+<link rel = "apple-icon-touch" type = "image/png" href = "">
+</head>
+<!-- <a href = "<?php echo ROOT_URL; ?>"><h1>App</h1></a> -->
+<nav class="navbar fixed-top   navbar-expand-lg navbar-dark <?php echo colour1; ?>">
+  <a class="navbar-brand" href="<?php echo ROOT_URL; ?>">RubberSpace</a>
 
-<?php
-// CSRF Token
-    if(empty($_SESSION['token'])) {
-        $_SESSION['token'] = (bin2hex(random_bytes(32)));       
-    }
-    $token = $_SESSION['token'];
-
-?>
     
 
 

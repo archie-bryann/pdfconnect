@@ -1,5 +1,11 @@
+RewriteEngine On
 
 
-<FilesMatch "\.(jpg|jpeg|png|gif|swf)$">
-    Header set Cache-Control "max-age=604800, public"
-</FilesMatch>
+
+php_value upload_max_filesize 300M
+php_value post_max_size 2G
+
+RewriteCond %{REQUEST_FILENAME} !-d
+
+RewriteCond %{REQUEST_FILENAME}% !-f 
+RewriteRule ^([^\.]+)$ $1.php [NC,L]
